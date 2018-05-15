@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="23.812498mm"
+   height="27.957438mm"
+   viewBox="0 0 23.812498 27.957438"
+   version="1.1"
+   id="svg5688"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="armed_stay.svg">
+  <defs
+     id="defs5682" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="35.9539"
+     inkscape:cy="40.769655"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5685">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-53.105655,-72.866519)">
+    <g
+       id="g5680"
+       transform="matrix(0.28579908,0,0,0.28579908,50.721909,72.744483)"
+       style="fill:#d32f2f;fill-opacity:1">
+      <path
+         id="path5662"
+         d="m 91.61,14.343 c -0.079,-1.69 -1.487,-3.065 -3.174,-3.004 l -0.615,0.002 c -19.67,0 -31.499,-7.069 -35.673,-10.109 -0.44,-0.32 -1.104,-0.805 -2.149,-0.805 -1.042,0 -1.707,0.484 -2.145,0.803 -4.173,3.04 -16,10.11 -35.676,10.11 l -0.615,-0.002 c -0.008,0 -0.016,0 -0.024,0 -1.682,0 -3.069,1.322 -3.149,3.004 -0.112,2.345 -2.254,57.739 39.618,83.23 l 0.347,0.212 c 0.505,0.31 1.075,0.465 1.646,0.465 0.571,0 1.141,-0.155 1.646,-0.465 l 0.341,-0.207 C 93.865,72.082 91.723,16.688 91.61,14.343 Z M 50,91.382 C 17.849,70.768 14.871,29.08 14.676,17.614 32.74,17.091 44.555,11.007 50,7.415 55.447,11.006 67.262,17.093 85.326,17.614 85.146,29.071 82.207,70.729 50,91.382 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#d32f2f;fill-opacity:1" />
+    </g>
+  </g>
+</svg>

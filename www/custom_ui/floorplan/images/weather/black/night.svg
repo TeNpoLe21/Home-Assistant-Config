@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="11.00667mm"
+   height="11.033324mm"
+   viewBox="0 0 11.006669 11.033325"
+   version="1.1"
+   id="svg823"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="night.svg">
+  <defs
+     id="defs817" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.2"
+     inkscape:cx="35.392821"
+     inkscape:cy="15.932376"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata820">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-121.99562,-111.52417)">
+    <path
+       inkscape:connector-curvature="0"
+       class="st0"
+       d="m 132.39374,117.84791 c -3.0427,0 -6.40291,-2.40771 -4.86833,-6.32355 v 0 c -3.28083,-0.0264 -5.52979,2.64584 -5.52979,5.50334 0,3.04271 2.46062,5.52979 5.52979,5.52979 2.77813,0 5.08,-2.01083 5.47688,-4.68313 0,-0.0265 -0.39688,-0.0265 -0.60855,-0.0265 z m -4.78895,3.88937 c -2.61938,0 -4.73604,-2.11667 -4.73604,-4.73604 0,-2.16958 1.53458,-3.99521 3.51895,-4.57729 v 0.0265 c -0.47625,3.30729 1.87854,6.08541 5.47688,6.40291 v 0 c -0.92604,1.79917 -2.19604,2.80459 -4.25979,2.88396 z"
+       id="path4"
+       style="stroke-width:0.26458332;fill:#72b8d4;fill-opacity:1" />
+  </g>
+</svg>
