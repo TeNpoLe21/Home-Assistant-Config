@@ -1,0 +1,6 @@
+- platform: mjpeg
+  mjpeg_url: http://192.168.1.5:8078/mjpg/Front_Porch
+  name: Front Porch
+  username: !secret blue_iris_user
+  password: !secret blue_iris_password
+  authentication: basic

@@ -1,0 +1,45 @@
+- platform: mqtt
+  state_topic: dummy/floorplan/sensor
+  name: Floorplan
+  
+- platform: mqtt
+  name: "Button 1"
+  state_topic: smartthings/Button 1/button/state
+  payload_on: "pushed"
+  payload_off: "held"
+  retain: false
+  
+- platform: mqtt
+  name: "Button 2"
+  state_topic: smartthings/Button 2/button/state
+  payload_on: "pushed"
+  payload_off: "held"
+  retain: false
+  
+- platform: mqtt
+  name: "Button 3"
+  state_topic: smartthings/Button 3/button/state
+  payload_on: "pushed"
+  payload_off: "held"
+  retain: false
+  
+- platform: mqtt
+  name: "Button 4"
+  state_topic: smartthings/Button 4/button/state
+  payload_on: "pushed"
+  payload_off: "held"
+  retain: false
+  
+- platform: mqtt
+  name: "Button 5"
+  state_topic: smartthings/Button 5/button/state
+  payload_on: "pushed"
+  payload_off: "held"
+  retain: false
+  
+- platform: mqtt
+  name: "Button 6"
+  state_topic: smartthings/Button 6/button/state
+  payload_on: "pushed"
+  payload_off: "held"
+  retain: false

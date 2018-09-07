@@ -1,0 +1,14 @@
+- platform: tplink
+  host: 192.168.1.57
+- platform: tplink
+  host: 192.168.1.58
+- platform: tplink
+  host: 192.168.1.59
+- platform: tplink
+  host: 192.168.1.60
+- platform: mqtt
+  name: "Fireplace"
+  state_topic: "smartthings/Fireplace/switch/state"
+  command_topic: "smartthings/Fireplace/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"

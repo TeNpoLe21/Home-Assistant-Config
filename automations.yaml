@@ -1,0 +1,218 @@
+- id: Set Buttons Off
+  alias: Set Buttons Off
+  initial_state: True
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+    - delay: '00:00:20'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 1/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 2/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 3/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 4/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 5/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 6/button/state'
+        payload: 'held'
+          
+- id: Initialize Automations
+  alias: Initialize Automations
+  initial_state: True
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+    - delay: '00:00:30'
+    - service: automation.turn_on
+      entity_id: automation.button_1_pushed
+    - service: automation.turn_on
+      entity_id: automation.button_2_pushed
+    - service: automation.turn_on
+      entity_id: automation.button_3_pushed
+    - service: automation.turn_on
+      entity_id: automation.button_4_pushed
+    - service: automation.turn_on
+      entity_id: automation.button_5_pushed
+    - service: automation.turn_on
+      entity_id: automation.button_6_pushed
+
+- id: Button 1 Pushed
+  alias: Button 1 Pushed
+  initial_state: False
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.button_1
+    from: 'off'
+    to: 'on'
+  action:
+    - service: switch.toggle
+      entity_id: switch.reading_lights
+    - service: switch.turn_off
+      entity_id: switch.master_bedroom
+    - delay: '00:00:01'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 1/button/state'
+        payload: 'held'
+        
+- id: Button 2 Pushed
+  alias: Button 2 Pushed
+  initial_state: False
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.button_2
+    from: 'off'
+    to: 'on'
+  action:
+    - service: switch.toggle
+      entity_id: switch.office_noise
+    - delay: '00:00:01'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 2/button/state'
+        payload: 'held'
+
+- id: Button 3 Pushed
+  alias: Button 3 Pushed
+  initial_state: False
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.button_3
+    from: 'off'
+    to: 'on'
+  action:
+    - service: switch.toggle
+      entity_id: switch.reading_lights
+    - service: switch.turn_off
+      entity_id: switch.master_bedroom
+    - delay: '00:00:01'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 3/button/state'
+        payload: 'held'
+
+- id: Button 4 Pushed
+  alias: Button 4 Pushed
+  initial_state: False
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.button_4
+    from: 'off'
+    to: 'on'
+  action:
+    - service: switch.toggle
+      entity_id: switch.adelyn_noise
+    - delay: '00:00:01'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 4/button/state'
+        payload: 'held'
+      
+- id: Button 5 Pushed
+  alias: Button 5 Pushed
+  initial_state: False
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.button_5
+    from: 'off'
+    to: 'on'
+  action:
+    - service: switch.toggle
+      entity_id: switch.delany_noise
+    - delay: '00:00:01'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 5/button/state'
+        payload: 'held'
+      
+- id: Button 6 Pushed
+  alias: Button 6 Pushed
+  initial_state: False
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.button_6
+    from: 'off'
+    to: 'on'
+  action:
+    - service: switch.toggle
+      entity_id: switch.master_bedroom_noise
+    - delay: '00:00:01'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 6/button/state'
+        payload: 'held'
+        
+- id: Lava Lamp On
+  alias: Lava Lamp On
+  initial_state: True
+  trigger:
+  - platform: time
+    at: '18:00:00'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.total_connect
+      state: disarmed
+  action:
+    - service: light.turn_on
+      entity_id: light.lava_lamp
+      
+- id: Lava Lamp Off
+  alias: Lava Lamp Off
+  initial_state: True
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.lava_lamp
+     
+- id: Arrived Home
+  alias: Arrived Home
+  initial_state: True
+  trigger:
+  - platform: state
+    entity_id: cover.garage_door_opener
+    to: open
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.total_connect
+        state: armed_away
+      - condition: sun
+        after: sunset
+        after_offset: '-01:00:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.garage_entry, switch.kitchen
+     
+- id: Arrived Home Salt Lamp
+  alias: Arrived Home Salt Lamp
+  initial_state: True
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.total_connect
+    to: disarmed
+  condition:
+    - condition: time
+      after: '20:00:00'
+      before: '00:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.salt_lamp

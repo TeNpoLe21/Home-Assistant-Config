@@ -1,0 +1,90 @@
+default_view:
+  name: Home
+  view: yes
+  entities:
+    - device_tracker.joes_iphone
+    - device_tracker.emilys_iphone
+    - sensor.dining_room_thermostat_temperature
+    - sensor.dark_sky_temperature
+    - alarm_control_panel.total_connect
+    - group.scenes
+    - group.downstairs
+    - group.upstairs
+    - group.outside
+    - cover.garage_door_opener
+    - camera.front_porch
+monitor:
+  name: Monitor
+  view: yes
+  entities:
+    - group.sensors
+    - group.automations
+media:
+  name: Media
+  view: yes
+  entities:
+    - media_player.sony_bravia_tv
+    - media_player.roku_ultra
+scenes:
+  name: Scenes
+  entities:
+    - script.goodnight
+    - script.goodmorning
+    - script.goodbye
+downstairs:
+  name: Downstairs
+  entities:
+    - switch.entry
+    - switch.office
+    - switch.dining_room
+    - switch.living_room
+    - light.tv_backlight
+    - switch.fireplace
+    - switch.nook
+    - switch.kitchen
+    - switch.garage_entry
+upstairs:
+  name: Upstairs
+  entities:
+    - switch.stairway
+    - switch.loft
+    - switch.office_noise
+    - switch.hallway
+    - switch.delany_noise
+    - light.lava_lamp
+    - light.salt_lamp
+    - switch.adelyn_noise
+    - switch.master_bedroom
+    - switch.reading_lights
+    - switch.master_bedroom_noise
+outside:
+  name: Outside
+  entities:
+    - switch.front_porch
+    - switch.back_porch
+    - switch.back_flood
+    - switch.pergola
+automations:
+  name: Automations
+  entities:
+    - automation.set_buttons_off
+    - script.set_buttons_off_manual
+    - automation.initialize_automations
+    - automation.button_1_pushed
+    - automation.button_2_pushed
+    - automation.button_3_pushed
+    - automation.button_4_pushed
+    - automation.button_5_pushed
+    - automation.button_6_pushed
+    - script.current_time_announce
+    - script.test
+sensors:
+  name: Sensors
+  entities:
+    - binary_sensor.button_1
+    - binary_sensor.button_2
+    - binary_sensor.button_3
+    - binary_sensor.button_4
+    - binary_sensor.button_5
+    - binary_sensor.button_6
+  

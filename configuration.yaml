@@ -1,0 +1,187 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude_loc_home
+  longitude: !secret longitude_loc_home
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Indiana/Indianapolis
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+  extra_html_url:
+    - /local/custom_ui/state-card-floorplan.html
+    
+# Enables configuration UI
+config:
+
+#Enables Hass.io configuration UI
+hassio:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+#discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+#sensor:
+#  - platform: yr
+
+recorder:
+  purge_keep_days: 2
+  purge_interval: 1
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+  alexa:
+    filter:
+      include_domains:
+        - switch
+        - cover
+        - fan
+        - group
+        - scene
+        - script
+        - automation
+
+mqtt:
+  broker: 192.168.1.6
+  username: !secret mqtt_user
+  password: !secret mqtt_password
+    
+alarm_control_panel:
+  - platform: totalconnect
+    username: !secret alarm_user
+    password: !secret alarm_password
+  
+device_tracker:
+  - platform: unifi
+    host: 192.168.1.5
+    verify_ssl: false
+    username: !secret unifi_user
+    password: !secret unifi_password
+    track_new_devices: no
+      
+remote:
+  - platform: harmony
+    name: Harmony Hub
+    host: 192.168.1.53
+    activity: Watch Apple TV
+    
+media_player:
+  - platform: alexa
+    email: !secret amazon_user
+    password: !secret amazon_password
+    url: amazon.com
+  - platform: braviatv
+    host: 192.168.1.51
+  - platform: roku
+    host: 192.168.1.54
+    
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
+      
+cover:
+  - platform: myq
+    username: !secret myq_user
+    password: !secret myq_password
+    type: chamberlain
+    
+nest:
+  client_id: !secret nest_id
+  client_secret: !secret nest_secret
+  
+google:
+  client_id: !secret google_id
+  client_secret: !secret google_secret
+    
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_key
+  polling_interval: 30000
+  device_config:
+    switch.entry:
+      polling_intensity: 1
+    switch.office:
+      polling_intensity: 1
+    switch.dining_room:
+      polling_intensity: 1
+    switch.living_room:
+      polling_intensity: 1
+    switch.nook:
+      polling_intensity: 1
+    switch.kitchen:
+      polling_intensity: 1
+    switch.garage_entry:
+      polling_intensity: 1
+    switch.stairway:
+      polling_intensity: 1
+    switch.loft:
+      polling_intensity: 1
+    switch.hallway:
+      polling_intensity: 1
+    switch.master_bedroom:
+      polling_intensity: 1
+    switch.reading_lights:
+      polling_intensity: 1
+    switch.front_porch:
+      polling_intensity: 1
+    switch.back_porch:
+      polling_intensity: 1
+    switch.back_flood:
+      polling_intensity: 1
+    switch.pergola:
+      polling_intensity: 1
+
+switch: !include switches.yaml 
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
+camera: !include cameras.yaml

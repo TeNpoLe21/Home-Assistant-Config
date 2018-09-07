@@ -1,0 +1,66 @@
+sensor.dark_sky_temperature:
+  friendly_name: Outdoor
+sensor.dining_room_thermostat_temperature:
+  friendly_name: Indoor
+binary_sensor.floorplan:
+  custom_ui_state_card: state-card-floorplan
+  config: !include floorplan.yaml
+script.goodnight:
+  friendly_name: Good Night
+  icon: mdi:weather-night
+script.goodmorning:
+  friendly_name: Good Morning
+  icon: mdi:weather-sunny
+  can_cancel: True
+script.goodbye:
+  friendly_name: Goodbye
+  icon: mdi:home-lock
+script.set_buttons_off_manual:
+  friendly_name: Set Buttons Off - Manual
+script.current_time_announce:
+  friendly_name: Announce Current Time
+switch.entry:
+  icon: mdi:lightbulb
+switch.office:
+  icon: mdi:lightbulb
+switch.dining_room:
+  icon: mdi:lightbulb
+switch.living_room:
+  icon: mdi:lightbulb
+switch.nook:
+  icon: mdi:lightbulb
+switch.kitchen:
+  icon: mdi:lightbulb
+switch.garage_entry:
+  icon: mdi:lightbulb
+switch.stairway:
+  icon: mdi:lightbulb
+switch.loft:
+  icon: mdi:lightbulb
+switch.hallway:
+  icon: mdi:lightbulb
+light.lava_lamp:
+  icon: mdi:lava-lamp
+light.salt_lamp:
+  icon: mdi:alarm-light
+switch.master_bedroom:
+  icon: mdi:lightbulb
+switch.reading_lights:
+  icon: mdi:lightbulb
+switch.front_porch:
+  icon: mdi:lightbulb
+switch.back_porch:
+  icon: mdi:lightbulb
+switch.back_flood:
+  icon: mdi:lightbulb
+switch.pergola:
+  icon: mdi:lightbulb
+switch.office_noise:
+  icon: mdi:surround-sound
+  friendly_name: Office Noise
+switch.master_bedroom_noise:
+  icon: mdi:surround-sound
+switch.adelyn_noise:
+  icon: mdi:surround-sound
+switch.delany_noise:
+  icon: mdi:surround-sound

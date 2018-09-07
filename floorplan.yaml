@@ -1,0 +1,358 @@
+      name: Floorplan
+      image: /local/custom_ui/floorplan/floorplan.svg
+      stylesheet: /local/custom_ui/floorplan/floorplan.css
+      
+      # These options are optional
+      warnings:                  # enable warnings (to find out why things might not be working correctly)
+      # pan_zoom:                  # enable experimental panning / zooming
+      hide_app_toolbar:          # hide the application toolbar (when used as a custom panel)
+      # date_format: DD-MMM-YYYY   # Date format to use in hover-over text
+
+      groups:
+        
+        - name: Outside Temp
+          entities:
+            - sensor.dark_sky_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + "°" : "unknown"}'
+          class_template: 'return "roboto-100";'
+            
+        - name: Inside Temp
+          entities:
+            - sensor.hvac_temp_status
+          text_template: '${entity.state.substring(0,3)}'
+          class_template: '
+            switch (entity.state.substring(4)) {
+              case "off":
+                return "roboto-300-green";
+                break;
+                
+              case "cooling":
+                return "roboto-300-blue";
+                break;
+                
+              case "heating":
+                return "roboto-300-red";
+                break;
+            }
+            '
+          
+        - name: Text
+          entities:
+            - sensor.friendly_date
+            - sensor.friendly_time
+            - sensor.friendly_alarm_status
+            - sensor.hourly_summary
+            - sensor.heading_security
+            - sensor.heading_scenes
+            - sensor.label_security_status
+            - sensor.label_arm_away
+            - sensor.label_arm_stay
+            - sensor.label_goodnight
+            - sensor.label_goodmorning
+            - sensor.label_goodbye
+            - sensor.label_garage_status
+            - sensor.label_tv_status
+            - sensor.hvac_status
+            - sensor.label_fireplace_status
+            - sensor.wind_speed
+            - sensor.forecast_1
+            - sensor.forecast_2
+            - sensor.forecast_3
+            - sensor.forecast_0_weather
+            - sensor.forecast_1_weather
+            - sensor.forecast_2_weather
+            - sensor.forecast_3_weather
+            - sensor.next_event
+          text_template: '${entity.state ? entity.state : "unknown"}'
+          class_template: 'return "roboto-300";'
+          
+        - name: Current Weather Icon
+          entities:
+            - sensor.dark_sky_icon
+          image_template: '
+            var imageName = "";
+            
+            switch (entity.state) {
+              case "clear-day":
+                imageName = "day";
+                break;
+
+              case "clear-night":
+                imageName = "night";
+                break;
+
+              case "partly-cloudy-day":
+                imageName = "cloudy-day";
+                break;
+
+              case "partly-cloudy-night":
+                imageName = "cloudy-night";
+                break;
+
+              case "cloudy":
+                imageName = "cloudy";
+                break;
+
+              case "rain":
+                imageName = "rainy";
+                break;
+
+              case "sleet":
+                imageName = "sleet";
+                break;
+                
+              case "snow":
+                imageName = "snowy";
+                break;
+                
+              case "wind":
+                imageName = "wind";
+                break;
+                
+              case "fog":
+                imageName = "fog";
+                break;
+            }
+
+            return "/local/custom_ui/floorplan/images/weather/" + imageName + ".svg";
+            '
+        
+        - name: Forecast Icons
+          entities:
+            - sensor.dark_sky_icon_1
+            - sensor.dark_sky_icon_2
+            - sensor.dark_sky_icon_3
+          image_template: '
+            var imageName = "";
+            
+            switch (entity.state) {
+              case "clear-day":
+                imageName = "day";
+                break;
+
+              case "clear-night":
+                imageName = "night";
+                break;
+
+              case "partly-cloudy-day":
+                imageName = "cloudy-day";
+                break;
+
+              case "partly-cloudy-night":
+                imageName = "cloudy-night";
+                break;
+
+              case "cloudy":
+                imageName = "cloudy";
+                break;
+
+              case "rain":
+                imageName = "rainy";
+                break;
+
+              case "sleet":
+                imageName = "sleet";
+                break;
+                
+              case "snow":
+                imageName = "snowy";
+                break;
+                
+              case "wind":
+                imageName = "wind";
+                break;
+                
+              case "fog":
+                imageName = "fog";
+                break;
+            }
+
+            return "/local/custom_ui/floorplan/images/weather/black/" + imageName + ".svg";
+            '
+        
+        - name: Armed Stay Button
+          elements:
+            - button.armed_stay
+          action:
+            domain: alarm_control_panel
+            service: alarm_arm_home
+            data:
+              entity_id: alarm_control_panel.total_connect
+              
+        - name: Armed Away Button
+          elements:
+            - button.armed_away
+          action:
+            domain: alarm_control_panel
+            service: alarm_arm_away
+            data:
+              entity_id: alarm_control_panel.total_connect
+        
+        - name: Alarm Status Icon
+          entities:
+            - alarm_control_panel.total_connect
+          image_template: '
+            var imageName = "";
+            
+            switch (entity.state) {
+              case "disarmed":
+                imageName = "disarmed";
+                break;
+                
+              case "armed_home":
+                imageName = "armed_stay";
+                break;
+                
+              case "armed_away":
+                imageName = "armed_away";
+                break;
+            }
+            
+            return "/local/custom_ui/floorplan/images/security/" + imageName + ".svg";
+            '
+        
+        - name: Goodnight Scene
+          entities:
+            - script.goodnight
+          action:
+            domain: script
+            service: goodnight
+            
+        - name: Good Morning Scene
+          entities:
+            - script.goodmorning
+          action:
+            domain: script
+            service: goodmorning
+            
+        - name: Goodbye Scene
+          entities:
+            - script.goodbye
+          action:
+            domain: script
+            service: goodbye
+            
+        - name: Garage Door
+          entities:
+            - cover.garage_door_opener
+          image_template: '
+            var imageName = "";
+            
+            switch (entity.state) {
+              case "open":
+                imageName = "garage_open";
+                break;
+                
+              case "closed":
+                imageName = "garage_closed";
+                break;
+            }
+            
+            return "/local/custom_ui/floorplan/images/garage/" + imageName + ".svg";
+            '
+          action:
+            domain: script
+            service: garage_button
+            
+        - name: TV
+          entities:
+            - media_player.sony_bravia_tv
+          image_template: '
+            var imageName = "";
+            
+            switch (entity.state) {
+              case "on":
+                imageName = "tv_on";
+                break;
+                
+              case "off":
+                imageName = "tv_off";
+                break;
+            }
+            
+            return "/local/custom_ui/floorplan/images/tv/" + imageName + ".svg";
+            '
+          action:
+            domain: script
+            service: tv_button
+            
+        - name: Fireplace
+          entities:
+            - switch.fireplace
+          image_template: '
+            var imageName = "";
+            
+            switch (entity.state) {
+              case "on":
+                imageName = "fireplace_on";
+                break;
+                
+              case "off":
+                imageName = "fireplace_off";
+                break;
+            }
+            
+            return "/local/custom_ui/floorplan/images/fireplace/" + imageName + ".svg";
+            '
+          action:
+            domain: switch
+            service: toggle
+            
+        - name: Garage Button
+          entities:
+            - script.garage_button
+          action:
+            domain: script
+            service: garage_button
+            
+        - name: TV Button
+          entities:
+            - script.tv_button
+          action:
+            domain: script
+            service: tv_button
+            
+        - name: Fireplace Button
+          entities:
+            - script.fireplace_button
+          action:
+            domain: script
+            service: fireplace_button
+            
+        - name: Trash
+          entities:
+            - sensor.trash_day
+          image_template: '
+            var imageName = "";
+            
+            switch (entity.state) {
+              case "on":
+                imageName = "trash_on";
+                break;
+                
+              case "off":
+                imageName = "trash_off";
+                break;
+            }
+            
+            return "/local/custom_ui/floorplan/images/trash_recycle/" + imageName + ".svg";
+            '
+            
+        - name: Recycle
+          entities:
+            - sensor.recycle_day
+          image_template: '
+            var imageName = "";
+            
+            switch (entity.state) {
+              case "on":
+                imageName = "recycle_on";
+                break;
+                
+              case "off":
+                imageName = "recycle_off";
+                break;
+            }
+            
+            return "/local/custom_ui/floorplan/images/trash_recycle/" + imageName + ".svg";
+            '

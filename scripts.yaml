@@ -1,0 +1,118 @@
+goodnight:
+  sequence:
+    # - service: input_boolean.turn_on
+      # data:
+        # entity_id: input_boolean.goodnight
+    - delay: 00:00:35
+    # - service: media_player.alexa_tts
+      # data_template:
+        # entity_id: media_player.nook
+        # message: " Initiating goodnight sequence. Have a good evening. "
+    # - delay: 00:00:30
+    # - service: switch.turn_off
+      # data:
+        # entity_id: group.downstairs        
+    # - service: alarm_control_panel.alarm_arm_home
+      # data:
+        # entity_id: alarm_control_panel.total_connect
+        
+goodmorning:
+  sequence:
+    - service: media_player.alexa_tts
+      data_template:
+        entity_id: media_player.nook
+        message: " Good morning. I hope you have a great day today. "
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.total_connect
+
+goodbye:
+  sequence:
+    - service: media_player.alexa_tts
+      data_template:
+        entity_id: media_player.nook
+        message: " Initiating goodbye sequence in 5 minutes. See you later! "
+    - delay: 00:04:00
+    - service: media_player.alexa_tts
+      data_template:
+        entity_id: media_player.nook, media_player.master_bedroom, media_player.loft
+        message: " 1 minute remaining until goodbye sequence activated. "
+    - delay: 00:01:00
+    - service: switch.turn_off
+      data:
+        entity_id: group.downstairs, group.upstairs
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        entity_id: alarm_control_panel.total_connect
+        
+garage_button:
+  sequence:
+    - service_template: >
+        {% if is_state('cover.garage_door_opener', 'open') %}
+          cover.close_cover
+        {% else %}
+          cover.open_cover
+        {% endif %}
+      data:
+        entity_id: cover.garage_door_opener
+    - delay: 00:00:15
+    - service: media_player.alexa_tts
+      data_template:
+        entity_id: media_player.nook
+        message: " The garage door is now {{ states ('cover.garage_door_opener') }}. "
+        
+tv_button:
+  sequence:
+    - service_template: >
+        {% if is_state('media_player.sony_bravia_tv', 'on') %}
+          media_player.turn_off
+        {% else %}
+          media_player.turn_on
+        {% endif %}
+      data:
+        entity_id: media_player.sony_bravia_tv
+        
+fireplace_button:
+  sequence:
+    - service_template: >
+        {% if is_state('switch.fireplace', 'on') %}
+          switch.turn_off
+        {% else %}
+          switch.turn_on
+        {% endif %}
+      data:
+        entity_id: switch.fireplace
+        
+set_buttons_off_manual:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 1/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 2/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 3/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 4/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 5/button/state'
+        payload: 'held'
+    - service: mqtt.publish
+      data:
+        topic: 'smartthings/Button 6/button/state'
+        payload: 'held'
+        
+current_time_announce:
+  sequence:
+    - service: media_player.alexa_tts
+      data_template:
+        entity_id: media_player.master_bedroom
+        message: " The time is now {{ states ('sensor.friendly_time') }}. "
