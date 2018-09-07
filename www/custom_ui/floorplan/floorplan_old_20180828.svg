@@ -15,7 +15,7 @@
    viewBox="0 0 1280 800"
    version="1.1"
    id="svg1249"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="floorplan.svg">
   <sodipodi:namedview
      id="base"
@@ -25,17 +25,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.81"
-     inkscape:cx="453.1115"
+     inkscape:cx="612.72266"
      inkscape:cy="347.18271"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer4"
      showgrid="false"
      units="px"
      viewbox-height="800"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
-     inkscape:window-y="317"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <defs
      id="defs1243">
@@ -506,17 +506,6 @@
        x="1109.99"
        y="409.979"
        inkscape:label="goodbye" />
-    <g
-       id="calendaricon"
-       transform="matrix(2.5221953,0,0,2.5221953,14.733656,729.73366)"
-       style="display:inline;fill:#455a64;fill-opacity:1"
-       inkscape:label="calendaricon">
-      <path
-         id="path1026"
-         d="M 19.434,4.566 H 16.956 V 3.327 c 0,-0.685 -0.555,-1.239 -1.239,-1.239 -0.684,0 -1.239,0.554 -1.239,1.239 V 4.566 H 9.522 V 3.327 C 9.522,2.642 8.967,2.088 8.283,2.088 7.599,2.088 7.044,2.642 7.044,3.327 V 4.566 H 4.566 c -1.368,0 -2.478,1.11 -2.478,2.478 v 12.39 c 0,1.368 1.11,2.478 2.478,2.478 h 14.868 c 1.368,0 2.478,-1.11 2.478,-2.478 V 7.044 c 0,-1.369 -1.11,-2.478 -2.478,-2.478 z m 0,14.868 H 4.566 V 8.902 h 14.868 z"
-         inkscape:connector-curvature="0"
-         style="fill:#455a64;fill-opacity:1" />
-    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1017,11 +1006,22 @@
        inkscape:label="script.tv_button" />
     <rect
        style="display:inline;fill:none;fill-opacity:1;stroke:none;stroke-width:0.17896158;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="script.fireplace_button"
+       id="button.fireplace"
        width="130"
        height="130"
        x="930"
        y="575"
-       inkscape:label="script.fireplace_button" />
+       inkscape:label="button.fireplace" />
+    <g
+       id="calendaricon"
+       transform="matrix(2.5221953,0,0,2.5221953,14.733656,729.73366)"
+       style="fill:#455a64;fill-opacity:1"
+       inkscape:label="calendaricon">
+      <path
+         id="path1026"
+         d="M 19.434,4.566 H 16.956 V 3.327 c 0,-0.685 -0.555,-1.239 -1.239,-1.239 -0.684,0 -1.239,0.554 -1.239,1.239 V 4.566 H 9.522 V 3.327 C 9.522,2.642 8.967,2.088 8.283,2.088 7.599,2.088 7.044,2.642 7.044,3.327 V 4.566 H 4.566 c -1.368,0 -2.478,1.11 -2.478,2.478 v 12.39 c 0,1.368 1.11,2.478 2.478,2.478 h 14.868 c 1.368,0 2.478,-1.11 2.478,-2.478 V 7.044 c 0,-1.369 -1.11,-2.478 -2.478,-2.478 z m 0,14.868 H 4.566 V 8.902 h 14.868 z"
+         inkscape:connector-curvature="0"
+         style="fill:#455a64;fill-opacity:1" />
+    </g>
   </g>
 </svg>
